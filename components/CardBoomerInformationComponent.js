@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Button,
   Card,
   CardActions,
@@ -37,7 +38,9 @@ const useStyles = makeStyles(theme => ({
     margin: 10,
     borderRadius: '50%',
     color: 'black',
-    alignItems: 'center'
+    textAlign: 'center',
+    fontSize: 12,
+    fontWeight: 'bold'
   },
   cardWarning: {
     backgroundColor: themeColor.warning
@@ -56,6 +59,19 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row'
   }
 }));
+
+const getPartnerStatus = status => {
+  switch (status) {
+    default:
+      return '';
+    case DANGER:
+      return 'Danger';
+    case WARNING:
+      return 'Warning';
+    case REGRETTED:
+      return 'Handled Issue';
+  }
+};
 export const CardBoomerInformationComponent = ({ boomer }) => {
   const classes = useStyles();
   return (
@@ -97,14 +113,16 @@ export const CardBoomerInformationComponent = ({ boomer }) => {
               </CardActions>
             </div>
             <Hidden>
-              <Card
+              <Avatar
                 className={clsx(
                   classes.cardMedia,
                   boomer.status === DANGER && classes.cardDanger,
                   boomer.status === WARNING && classes.cardWarning,
                   boomer.status === REGRETTED && classes.cardRegretted
                 )}
-              />
+              >
+                {getPartnerStatus(boomer.status)}
+              </Avatar>
             </Hidden>
           </div>
         </Card>
