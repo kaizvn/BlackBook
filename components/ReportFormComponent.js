@@ -6,7 +6,6 @@ import RUG, { DragArea, List } from 'react-upload-gallery';
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { Field, Fields, reduxForm } from 'redux-form';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -31,7 +30,6 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row'
   }
 }));
-const withForm = reduxForm({ form: 'reportForm' });
 const ReportFormComponent = () => {
   const classes = useStyles();
   return (
@@ -83,7 +81,7 @@ const ReportFormComponent = () => {
                 {image => (
                   <div className={classes.card}>
                     <Grid item xs={12} md={12}>
-                      <List image={image} name="evidents" id="evidents" />
+                      <List image={image} />
                     </Grid>
                   </div>
                 )}
@@ -105,4 +103,4 @@ const ReportFormComponent = () => {
   );
 };
 
-export default withForm(ReportFormComponent);
+export default ReportFormComponent;
