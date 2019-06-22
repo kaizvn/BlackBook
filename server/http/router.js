@@ -1,6 +1,6 @@
 const express = require('express');
 const RouterAPI = express.Router();
-const { Boomers } = require('../db/models');
+const { Boomers, Evidences } = require('../db/models');
 
 RouterAPI.get('/boomer', (req, res) => {
 	const query = req.query.q;
@@ -29,6 +29,13 @@ RouterAPI.post('/boomer', (req, res) => {
 
 	Boomers.insertBoomer(params);
 	return res.status(200).json({ status: 'inserted', error: false });
+});
+
+RouterAPI.get('/evidence/:id', (req, res) => {
+	const id = req.params.id;
+	const result = Evidences.find({ id }).value();
+
+	return res.status(200).json(result);
 });
 
 module.exports = {
