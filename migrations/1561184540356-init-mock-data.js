@@ -11,3 +11,4 @@ module.exports.down = function(next) {
 	db.setState({}).write();
 	next();
 };
+	
