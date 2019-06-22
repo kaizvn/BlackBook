@@ -2,7 +2,6 @@ const express = require('express');
 const RouterAPI = express.Router();
 const { Boomers } = require('../db/models');
 
-console.log(Boomers);
 RouterAPI.get('/boomer', (req, res) => {
 	const query = req.query.q;
 	const results = Boomers.filter(
