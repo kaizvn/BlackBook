@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { Container, Grid, makeStyles } from '@material-ui/core';
 import { connect } from 'react-redux';
 import React from 'react';
 
@@ -15,11 +15,13 @@ class BoomerResultsComponent extends React.Component {
   render() {
     const { boomers = {} } = this.props;
     return (
-      <Box m={2}>
-        {boomers.map((boomer, index) => (
-          <CardBoomerInformationComponent boomer={boomer} key={index} />
-        ))}
-      </Box>
+      <Container maxWidth="md">
+        <Grid container spacing={4}>
+          {boomers.map(boomer => (
+            <CardBoomerInformationComponent boomer={boomer} key={boomer} />
+          ))}
+        </Grid>
+      </Container>
     );
   }
 }
