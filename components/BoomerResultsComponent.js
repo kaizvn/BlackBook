@@ -1,4 +1,4 @@
-import { Container, Grid, makeStyles } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import { connect } from 'react-redux';
 import React from 'react';
 
@@ -17,8 +17,8 @@ class BoomerResultsComponent extends React.Component {
     return (
       <Container maxWidth="md">
         <Grid container spacing={4}>
-          {boomers.map(boomer => (
-            <CardBoomerInformationComponent boomer={boomer} key={boomer} />
+          {boomers.map((boomer, index) => (
+            <CardBoomerInformationComponent boomer={boomer} key={index} />
           ))}
         </Grid>
       </Container>

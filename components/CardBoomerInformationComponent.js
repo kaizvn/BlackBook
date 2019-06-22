@@ -1,16 +1,18 @@
 import {
   Avatar,
-  Button,
   Card,
   CardActions,
   CardContent,
-  CardMedia,
+  CardHeader,
   Grid,
-  Hidden,
+  IconButton,
   Typography,
   makeStyles
 } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import React from 'react';
+import ShareIcon from '@material-ui/icons/Share';
 
 import clsx from 'clsx';
 
@@ -19,8 +21,7 @@ import { themeColor } from '../utils';
 
 const useStyles = makeStyles(theme => ({
   cardDetails: {
-    display: 'flex',
-    flexDirection: 'row'
+    display: 'flex'
   },
   cardGrid: {
     paddingTop: theme.spacing(8),
@@ -30,17 +31,6 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column'
-  },
-  cardMedia: {
-    width: 60,
-    height: 60,
-    padding: 10,
-    margin: 10,
-    borderRadius: '50%',
-    color: 'black',
-    textAlign: 'center',
-    fontSize: 12,
-    fontWeight: 'bold'
   },
   cardWarning: {
     backgroundColor: themeColor.warning
@@ -54,9 +44,9 @@ const useStyles = makeStyles(theme => ({
   cardEvidents: {
     height: 100
   },
-  details: {
-    flex: 1,
-    flexDirection: 'row'
+  avatar: {
+    fontSize: 10,
+    fontWeight: 'bold'
   }
 }));
 
@@ -69,63 +59,48 @@ const getPartnerStatus = status => {
     case WARNING:
       return 'Warning';
     case REGRETTED:
-      return 'Handled Issue';
+      return 'Fixxed';
   }
 };
 export const CardBoomerInformationComponent = ({ boomer }) => {
   const classes = useStyles();
   return (
-    <Grid
-      item
-      xs={12}
-      md={6}
-      alignItems="center"
-      justify="center"
-      alignContent="center"
-    >
-      <Card>
-        <Card className={classes.card}>
-          <CardMedia
-            className={classes.cardEvidents}
-            image="../static/boat.jpg"
-            title="Image title"
-          />
-          <div className={classes.cardDetails}>
-            <div className={classes.details}>
-              <CardContent>
-                <Typography component="h2" variant="h5">
-                  {boomer.name}
-                </Typography>
-                <Typography variant="subtitle1" color="textSecondary" paragraph>
-                  {boomer.phone}
-                </Typography>
-                <Typography variant="subtitle1" noWrap>
-                  {boomer.address}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small" color="primary">
-                  View
-                </Button>
-                <Button size="small" color="primary">
-                  Edit
-                </Button>
-              </CardActions>
-            </div>
-            <Hidden>
-              <Avatar
-                className={clsx(
-                  classes.cardMedia,
-                  boomer.status === DANGER && classes.cardDanger,
-                  boomer.status === WARNING && classes.cardWarning,
-                  boomer.status === REGRETTED && classes.cardRegretted
-                )}
-              >
-                {getPartnerStatus(boomer.status)}
-              </Avatar>
-            </Hidden>
-          </div>
-        </Card>
+    <Grid item xs={12} md={6} spacing={2}>
+      <Card className={classes.card}>
+        <CardHeader
+          avatar={
+            <Avatar
+              aria-label="Recipe"
+              className={clsx(
+                classes.avatar,
+                boomer.status === DANGER && classes.cardDanger,
+                boomer.status === WARNING && classes.cardWarning,
+                boomer.status === REGRETTED && classes.cardRegretted
+              )}
+            >
+              {getPartnerStatus(boomer.status)}
+            </Avatar>
+          }
+          title={boomer.name}
+          subheader={boomer.phone}
+        />
+
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {boomer.address}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="Add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="Share">
+            <ShareIcon />
+          </IconButton>
+          <IconButton>
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
       </Card>
     </Grid>
   );
