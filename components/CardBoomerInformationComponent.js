@@ -47,12 +47,12 @@ export const CardBoomerInformationComponent = ({ boomer }) => {
                 <Typography variant="subtitle1" paragraph>
                   {boomer.address}
                 </Typography>
-                <Typography variant="subtitle1" color="primary">
-                  View details...
+                <Typography variant="subtitle1" color="error">
+                  {boomer.amount} VND
                 </Typography>
               </CardContent>
             </div>
-            <Hidden xsDown>
+            <Hidden>
               <CardMedia
                 className={classes.cardMedia}
                 image="../static/boat.jpg"

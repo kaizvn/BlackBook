@@ -14,7 +14,6 @@ const connectToRedux = connect(
 class BoomerResultsComponent extends React.Component {
   render() {
     const { boomers = {} } = this.props;
-    console.log(boomers);
     return (
       <Box m={2}>
         {boomers.map((boomer, index) => (
