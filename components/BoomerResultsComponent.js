@@ -1,3 +1,4 @@
+import { Box } from '@material-ui/core';
 import { connect } from 'react-redux';
 import React from 'react';
 
@@ -15,11 +16,11 @@ class BoomerResultsComponent extends React.Component {
     const { boomers = {} } = this.props;
     console.log(boomers);
     return (
-      <div>
+      <Box m={2}>
         {boomers.map((boomer, index) => (
           <CardBoomerInformationComponent boomer={boomer} key={index} />
         ))}
-      </div>
+      </Box>
     );
   }
 }
