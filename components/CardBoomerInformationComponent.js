@@ -52,20 +52,21 @@ const useStyles = makeStyles(theme => ({
 
 const getPartnerStatus = status => {
   switch (status) {
-    default:
-      return '';
     case DANGER:
       return 'Danger';
     case WARNING:
       return 'Warning';
     case REGRETTED:
-      return 'Fixxed';
+      return 'Fixed';
+    default:
+      return '';
   }
 };
+
 export const CardBoomerInformationComponent = ({ boomer }) => {
   const classes = useStyles();
   return (
-    <Grid item xs={12} md={6} spacing={2}>
+    <Grid item lg={12}>
       <Card className={classes.card}>
         <CardHeader
           avatar={

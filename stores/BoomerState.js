@@ -1,7 +1,9 @@
+import { SEARCH_ACTIONS } from './SearchState';
+
 export const WARNING = 1;
 export const DANGER = 2;
 export const REGRETTED = 3;
-export const SEARCH_BOOMER = 'SEARCH_BOOMER';
+
 const boomers = [
   {
     phone: '0909000144',
@@ -51,9 +53,11 @@ const boomers = [
 ];
 
 export default {
-  boomers: (state = boomers, { type }) => {
-    if (type === SEARCH_BOOMER) {
+  boomers: (state = [], { type, payload }) => {
+    if (type === SEARCH_ACTIONS.SEARCHING) {
+      return payload === 'hello' ? boomers : [];
     }
+
     return state;
   }
 };

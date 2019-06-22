@@ -13,7 +13,7 @@ const connectToRedux = connect(
 
 class BoomerResultsComponent extends React.Component {
   render() {
-    const { boomers = {} } = this.props;
+    const { boomers = [] } = this.props;
     return (
       <Container maxWidth="md">
         <Grid container spacing={4}>
