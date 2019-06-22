@@ -12,6 +12,7 @@ import {
 import React from 'react';
 
 import MainPageLayout from '../layouts/MainPageLayout';
+import SearchComponent from '../components/SearchComponent';
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -52,6 +53,7 @@ const IndexPage = () => {
   return (
     <MainPageLayout>
       {/* Hero unit */}
+      <SearchComponent />
       <div className={classes.heroContent}>
         <Container maxWidth="sm">
           <Typography
