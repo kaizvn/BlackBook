@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -12,18 +11,6 @@ import Typography from '@material-ui/core/Typography';
 
 import EmptyPageLayout from '../layouts/EmptyPageLayout';
 import MLink from '../src/MLink';
-
-function MadeWithLove() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Built with love by the '}
-      <MLink color="inherit" href="https://material-ui.com/">
-        Material-UI
-      </MLink>
-      {' team.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -107,9 +94,6 @@ export default function SignIn() {
           </Grid>
         </form>
       </div>
-      <Box mt={5}>
-        <MadeWithLove />
-      </Box>
     </EmptyPageLayout>
   );
 }
