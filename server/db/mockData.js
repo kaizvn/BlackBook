@@ -7,7 +7,7 @@ module.exports = {
 			address: '52 Huynh Van Banh',
 			name: 'Nguyen Van Hai',
 			amount: '1000000',
-			evidence: '/evidence/1.jpg',
+			evidenceIds: ['1'],
 			avatar: '/avatar/1.jpg',
 			status: BOOMER_WARNING
 		},
@@ -16,7 +16,7 @@ module.exports = {
 			address: '62 Tan Thuan Tay',
 			name: 'Tran Minh Tuan',
 			amount: '210000',
-			evidence: '/evidence/2.jpg',
+			evidenceIds: ['2'],
 			avatar: '/avatar/2.jpg',
 			status: BOOMER_DANGER
 		},
@@ -25,7 +25,7 @@ module.exports = {
 			address: '105 Tan Son Nhi',
 			name: 'Nguyen Thi Nu',
 			amount: '1150000',
-			evidence: '/evidence/3.jpg',
+			evidenceIds: ['3'],
 			avatar: '/avatar/3.jpg',
 			status: BOOMER_CLEANED
 		},
@@ -34,7 +34,7 @@ module.exports = {
 			address: '279 Bui Thi Xuan',
 			name: 'Mai Hoang Anh',
 			amount: '325000',
-			evidence: '/evidence/4.jpg',
+			evidenceIds: ['4'],
 			avatar: '/avatar/4.jpg',
 			status: BOOMER_DANGER
 		},
@@ -43,9 +43,45 @@ module.exports = {
 			address: '710 Huynh Tan Phat',
 			name: 'Mai Dinh Chinh',
 			amount: '565000',
-			evidence: '/evidence/5.jpg',
+			evidenceIds: ['5'],
 			avatar: '/avatar/5.jpg',
 			status: BOOMER_WARNING
+		}
+	],
+	users: [
+		{ phone: '0903005212', avatar: '/avatar/6.jpg' },
+		{ phone: '0921250030', avatar: '/avatar/7.jpg' }
+	],
+	evidences: [
+		{
+			id: '1',
+			photo: '/evidence/1.jpg',
+			by: '0903005212',
+			at: 1561207713130
+		},
+		{
+			id: '2',
+			photo: '/evidence/2.jpg',
+			by: '0903005212',
+			at: 1561201513130
+		},
+		{
+			id: '3',
+			photo: '/evidence/3.jpg',
+			by: '0903005212',
+			at: 1561107713130
+		},
+		{
+			id: '4',
+			photo: '/evidence/4.jpg',
+			by: '0921250030',
+			at: 1561007713130
+		},
+		{
+			id: '5',
+			photo: '/evidence/5.jpg',
+			by: '0921250030',
+			at: 1560207713130
 		}
 	]
 };
