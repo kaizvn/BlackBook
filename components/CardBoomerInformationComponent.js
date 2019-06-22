@@ -47,6 +47,9 @@ export const CardBoomerInformationComponent = ({ boomer }) => {
                 <Typography variant="subtitle1" paragraph>
                   {boomer.address}
                 </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  Total Amount:
+                </Typography>
                 <Typography variant="subtitle1" color="error">
                   {boomer.amount} VND
                 </Typography>
