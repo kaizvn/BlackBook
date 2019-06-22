@@ -1,6 +1,6 @@
-const WARNING = 1;
-const DANGER = 2;
-const REMOVED = 3;
+export const WARNING = 1;
+export const DANGER = 2;
+export const REGRETTED = 3;
 export const SEARCH_BOOMER = 'SEARCH_BOOMER';
 const boomers = [
   {
@@ -28,7 +28,7 @@ const boomers = [
     amount: 1000000,
     evident: 'asdsdsadad.img',
     avatar: 'nva.img',
-    status: REMOVED
+    status: REGRETTED
   },
   {
     phone: '0909000144',
