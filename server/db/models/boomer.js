@@ -12,8 +12,14 @@ module.exports.boomerExist = function({ phone }) {
 
 	return boomer ? true : false;
 };
-module.exports.updateBoomer = function({ reporter, phone, evidencePhoto }) {
-	const evidenceId = insertEvidence({ reporter, evidencePhoto }).id;
+module.exports.updateBoomer = function({
+	reporter,
+	phone,
+	evidencePhoto,
+	description
+}) {
+	const evidenceId = insertEvidence({ reporter, evidencePhoto, description })
+		.id;
 	const boomer = Boomers.find({ phone });
 	boomer
 		.get('evidenceIds')
@@ -25,10 +31,11 @@ module.exports.insertBoomer = function({
 	phone,
 	evidencePhoto,
 	avatarPhoto,
+	description,
 	...args
 }) {
 	phone = formatPhone(phone);
-	const newEvidence = insertEvidence({ reporter, evidencePhoto });
+	const newEvidence = insertEvidence({ reporter, evidencePhoto, description });
 	const avatarId = handleAvatar(avatarPhoto);
 
 	Boomers.push({
