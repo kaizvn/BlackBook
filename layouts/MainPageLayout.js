@@ -1,12 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Link from '@material-ui/core/Link';
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { blue } from '@material-ui/core/colors';
 
-import CameraIcon from '@material-ui/icons/PhotoCamera';
+const blue500 = blue[500];
 
 function MadeWithLove() {
   return (
@@ -24,40 +25,17 @@ const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2)
   },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4)
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8)
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  cardMedia: {
-    paddingTop: '56.25%' // 16:9
-  },
-  cardContent: {
-    flexGrow: 1
-  },
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6)
   }
 }));
 
-export default function Album({ children }) {
+export const MainPageLayout = ({ children }) => {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <CssBaseline />
-      <AppBar position="relative">
+      <AppBar position="relative" style={{ backgroundColor: blue500 }}>
         <Toolbar>
           <CameraIcon className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
@@ -84,4 +62,6 @@ export default function Album({ children }) {
       {/* End footer */}
     </React.Fragment>
   );
-}
+};
+
+export default MainPageLayout;
