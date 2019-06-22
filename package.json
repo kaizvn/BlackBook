@@ -1,0 +1,58 @@
+{
+  "name": "create-next-example-app",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.1.1",
+    "lodash": "^4.17.11",
+    "next": "^8.1.0",
+    "next-redux-wrapper": "^3.0.0-alpha.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-toastify": "^5.3.1",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/free-regular-svg-icons": "^5.8.1",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "babel-eslint": "9.x",
+    "eslint": "5.x",
+    "eslint-config-react-app": "^3.0.5",
+    "eslint-plugin-flowtype": "^3.2.1",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "prettier": "^1.18.2",
+    "prettier-eslint-cli": "^4.7.1"
+  },
+  "prettier": {
+    "quotes": true,
+    "semi": true,
+    "useTabs": false,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "jsxBracketSameLine": false,
+    "rcVerbose": true
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "prettier-eslint --write",
+        "eslint --max-warnings 0 --fix --ignore-pattern '!.importjs.js' ",
+        "git add"
+      ],
+      "*.{css,json,md,graphql}": [
+        "prettier-eslint --write",
+        "git add"
+      ]
+    }
+  }
+}
