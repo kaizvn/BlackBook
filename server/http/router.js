@@ -1,19 +1,23 @@
 const express = require('express');
 const RouterAPI = express.Router();
-const db = require('../db');
 const { Boomers } = require('../db/models');
 
+console.log(Boomers);
 RouterAPI.get('/boomer', (req, res) => {
 	const query = req.query.q;
-	const results = db
-		.get('boomers')
-		.filter(
-			({ name, address, phone }) =>
-				phone === query || name.includes(query) || address.includes(query)
-		)
-		.value();
+	const results = Boomers.filter(
+		({ name, address, phone }) =>
+			phone === query || name.includes(query) || address.includes(query)
+	).value();
 
 	return res.status(200).json(results);
+});
+
+RouterAPI.get('/boomer/:phone', (req, res) => {
+	const phone = req.params.phone;
+	const result = Boomers.find({ phone }).value();
+
+	return res.status(200).json(result);
 });
 
 RouterAPI.post('/boomer', (req, res) => {

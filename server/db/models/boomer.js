@@ -5,39 +5,37 @@ const { BOOMER_WARNING } = require('../enums');
 
 const Boomers = db.get('boomers');
 
-module.exports = {
-	Boomers,
-	boomerExist: function({ phone }) {
-		phone = formatPhone(phone);
-		const boomer = Boomers.find({ phone }).value();
+module.exports = Boomers;
+module.exports.boomerExist = function({ phone }) {
+	phone = formatPhone(phone);
+	const boomer = Boomers.find({ phone }).value();
 
-		return boomer ? true : false;
-	},
-	updateBoomer: function({ reporter, phone, evidencePhoto }) {
-		const evidenceId = insertEvidence({ reporter, evidencePhoto }).id;
-		const boomer = Boomers.find({ phone });
-		boomer
-			.get('evidenceIds')
-			.push(evidenceId)
-			.write();
-	},
-	insertBoomer: function({
-		reporter,
+	return boomer ? true : false;
+};
+module.exports.updateBoomer = function({ reporter, phone, evidencePhoto }) {
+	const evidenceId = insertEvidence({ reporter, evidencePhoto }).id;
+	const boomer = Boomers.find({ phone });
+	boomer
+		.get('evidenceIds')
+		.push(evidenceId)
+		.write();
+};
+module.exports.insertBoomer = function({
+	reporter,
+	phone,
+	evidencePhoto,
+	avatarPhoto,
+	...args
+}) {
+	phone = formatPhone(phone);
+	const newEvidence = insertEvidence({ reporter, evidencePhoto });
+	const avatarId = handleAvatar(avatarPhoto);
+
+	Boomers.push({
+		...args,
 		phone,
-		evidencePhoto,
-		avatarPhoto,
-		...args
-	}) {
-		phone = formatPhone(phone);
-		const newEvidence = insertEvidence({ reporter, evidencePhoto });
-		const avatarId = handleAvatar(avatarPhoto);
-
-		Boomers.push({
-			...args,
-			phone,
-			evidenceIds: [newEvidence.id],
-			avatar: `/avatar/${avatarId}.jpg`,
-			status: BOOMER_WARNING
-		}).write();
-	}
+		evidenceIds: [newEvidence.id],
+		avatar: `/avatar/${avatarId}.jpg`,
+		status: BOOMER_WARNING
+	}).write();
 };
