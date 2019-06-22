@@ -6,7 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
-function HomePageComponent() {
+function SearchComponent({ onClick, value }) {
     return (
         <div>
             <div className="search-home">
@@ -25,6 +25,7 @@ function HomePageComponent() {
                                     flexGrow: 1
                                 }}>
                                     <InputBase
+                                        value={value}
                                         style={{
                                             marginLeft: 8,
                                             flex: 1,
@@ -37,7 +38,7 @@ function HomePageComponent() {
                                         height: 28,
                                         margin: 4,
                                     }} />
-                                    <Button color="secondary"><SearchIcon /> Search</Button>
+                                    <Button color="primary" onClick={onClick}><SearchIcon /> Search</Button>
                                 </Paper>
                             </Grid>
                         </Container>
@@ -53,4 +54,4 @@ function HomePageComponent() {
     );
 }
 
-export default HomePageComponent;
+export default SearchComponent;
