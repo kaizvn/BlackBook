@@ -22,6 +22,11 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="/static/access/image-gallery.css"
+          />
         </Head>
         <body>
           <Main />
