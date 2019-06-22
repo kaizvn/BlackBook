@@ -42,14 +42,14 @@ RouterAPI.get('/evidence/:id', (req, res) => {
 RouterAPI.put('/evidence/:id', (req, res) => {
 	const { currentUser } = req.header;
 	const { id } = req.params;
-	const { proof } = req.body;
+	const { proofPhoto } = req.body;
 	const evidence = Evidences.find({ id }).value();
 
 	if (currentUser === evidence.reporter) {
-		Evidences.requestLiftCurse({ id, proof });
+		Evidences.requestLiftCurse({ id, proofPhoto });
 		return res.status(200).json({ error: false, status: 'curse lifted' });
 	}
-	Evidences.reportScam({ id, proof });
+	Evidences.reportScam({ id, proofPhoto });
 	return res.status(200).json({ error: false, status: 'reported' });
 });
 
