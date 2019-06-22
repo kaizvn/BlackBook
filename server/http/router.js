@@ -1,6 +1,7 @@
 const express = require('express');
 const RouterAPI = express.Router();
 const { Boomers, Evidences } = require('../db/models');
+const { EVIDENCE_BEING_VERIFIED } = require('../db/enums');
 
 RouterAPI.get('/boomer', (req, res) => {
 	const query = req.query.q;
@@ -32,10 +33,24 @@ RouterAPI.post('/boomer', (req, res) => {
 });
 
 RouterAPI.get('/evidence/:id', (req, res) => {
-	const id = req.params.id;
+	const { id } = req.params;
 	const result = Evidences.find({ id }).value();
 
 	return res.status(200).json(result);
+});
+
+RouterAPI.put('/evidence/:id', (req, res) => {
+	const { currentUser } = req.header;
+	const { id } = req.params;
+	const { proofPhoto } = req.body;
+	const evidence = Evidences.find({ id }).value();
+
+	if (currentUser === evidence.reporter) {
+		Evidences.requestLiftCurse({ id, proofPhoto });
+		return res.status(200).json({ error: false, status: 'curse lifted' });
+	}
+	Evidences.reportScam({ id, proofPhoto });
+	return res.status(200).json({ error: false, status: 'reported' });
 });
 
 module.exports = {
