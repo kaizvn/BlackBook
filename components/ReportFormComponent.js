@@ -1,10 +1,12 @@
-import { Container } from '@material-ui/core';
+import { Button, Container, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import RUG, { DragArea, List } from 'react-upload-gallery';
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import { Field, Fields, reduxForm } from 'redux-form';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -23,14 +25,18 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2)
+  },
+  card: {
+    display: 'flex',
+    flexDirection: 'row'
   }
 }));
-// const withPreviewState = withState('preview', 'setPreview', '');
-// const withSrcState = withState('src', 'setSrc', '');
+const withForm = reduxForm({ form: 'reportForm' });
 const ReportFormComponent = () => {
   const classes = useStyles();
   return (
     <React.Fragment>
+      <link rel="stylesheet" href="./static/react-upload-gallery.css" />
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
@@ -71,10 +77,27 @@ const ReportFormComponent = () => {
               id="phone"
               autoComplete="phone"
             />
-            <div>
-              <ImageUpload width={300} height={250} />
-              <img alt="Preview" />
-            </div>
+
+            <RUG>
+              <DragArea>
+                {image => (
+                  <div className={classes.card}>
+                    <Grid item xs={12} md={12}>
+                      <List image={image} name="evidents" id="evidents" />
+                    </Grid>
+                  </div>
+                )}
+              </DragArea>
+            </RUG>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Report
+            </Button>
           </form>
         </div>
       </Container>
@@ -82,4 +105,4 @@ const ReportFormComponent = () => {
   );
 };
 
-export default ReportFormComponent;
+export default withForm(ReportFormComponent);
