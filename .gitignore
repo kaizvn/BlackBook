@@ -72,3 +72,4 @@ dist/
 docker/
 
 .migrate
+db.json

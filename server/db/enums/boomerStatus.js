@@ -1,0 +1,5 @@
+module.exports = {
+	BOOMER_WARNING: 0,
+	BOOMER_DANGER: 1,
+	BOOMER_CLEANED: 2
+};
