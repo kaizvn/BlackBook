@@ -1,7 +1,6 @@
 import {
   Button,
   Card,
-  CardActionArea,
   CardActions,
   CardContent,
   CardMedia,
@@ -19,14 +18,17 @@ import { themeColor } from '../utils';
 
 const useStyles = makeStyles(theme => ({
   cardDetails: {
-    flex: 1
+    display: 'flex',
+    flexDirection: 'row'
   },
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8)
   },
   card: {
-    display: 'flex'
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column'
   },
   cardMedia: {
     width: 60,
@@ -45,6 +47,13 @@ const useStyles = makeStyles(theme => ({
   },
   cardRegretted: {
     backgroundColor: themeColor.regretted
+  },
+  cardEvidents: {
+    height: 100
+  },
+  details: {
+    flex: 1,
+    flexDirection: 'row'
   }
 }));
 export const CardBoomerInformationComponent = ({ boomer }) => {
@@ -58,41 +67,48 @@ export const CardBoomerInformationComponent = ({ boomer }) => {
       justify="center"
       alignContent="center"
     >
-      <CardActionArea component="a" href="#">
+      <Card>
         <Card className={classes.card}>
+          <CardMedia
+            className={classes.cardEvidents}
+            image="../static/boat.jpg"
+            title="Image title"
+          />
           <div className={classes.cardDetails}>
-            <CardContent>
-              <Typography component="h2" variant="h5">
-                {boomer.name}
-              </Typography>
-              <Typography variant="subtitle1" color="textSecondary" paragraph>
-                {boomer.phone}
-              </Typography>
-              <Typography variant="subtitle1" noWrap>
-                {boomer.address}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small" color="primary">
-                View
-              </Button>
-              <Button size="small" color="primary">
-                Edit
-              </Button>
-            </CardActions>
+            <div className={classes.details}>
+              <CardContent>
+                <Typography component="h2" variant="h5">
+                  {boomer.name}
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary" paragraph>
+                  {boomer.phone}
+                </Typography>
+                <Typography variant="subtitle1" noWrap>
+                  {boomer.address}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" color="primary">
+                  View
+                </Button>
+                <Button size="small" color="primary">
+                  Edit
+                </Button>
+              </CardActions>
+            </div>
+            <Hidden>
+              <Card
+                className={clsx(
+                  classes.cardMedia,
+                  boomer.status === DANGER && classes.cardDanger,
+                  boomer.status === WARNING && classes.cardWarning,
+                  boomer.status === REGRETTED && classes.cardRegretted
+                )}
+              />
+            </Hidden>
           </div>
-          <Hidden>
-            <CardMedia
-              className={clsx(
-                classes.cardMedia,
-                boomer.status === DANGER && classes.cardDanger,
-                boomer.status === WARNING && classes.cardWarning,
-                boomer.status === REGRETTED && classes.cardRegretted
-              )}
-            />
-          </Hidden>
         </Card>
-      </CardActionArea>
+      </Card>
     </Grid>
   );
 };

@@ -8,8 +8,8 @@ const boomers = [
     address: '123 ABC, Phu Thanh',
     name: 'Nguyen Van A',
     amount: 1000000,
-    evident: 'asdsdsadad.img',
-    avatar: 'nva.img',
+    evidents: [['asdsdsadad.img', '../static/boat.jpg'], '../static/boat.jpg'],
+    avatar: '../static/boat.jpg',
     status: WARNING
   },
   {
@@ -17,7 +17,7 @@ const boomers = [
     address: '123 ABC, Phu Thanh',
     name: 'Vo Van B',
     amount: 1000000,
-    evident: 'asdsdsadad.img',
+    evidents: ['asdsdsadad.img', '../static/boat.jpg'],
     avatar: 'nva.img',
     status: DANGER
   },
@@ -26,7 +26,7 @@ const boomers = [
     address: '123 ABC, Ho Chi Minh',
     name: 'Tran Thi C',
     amount: 1000000,
-    evident: 'asdsdsadad.img',
+    evidents: ['asdsdsadad.img', '../static/boat.jpg'],
     avatar: 'nva.img',
     status: REGRETTED
   },
@@ -35,7 +35,7 @@ const boomers = [
     address: '123 ABC, Nguyen Chi Thanh',
     name: 'Truong Tan D',
     amount: 1000000,
-    evident: 'asdsdsadad.img',
+    evidents: ['asdsdsadad.img', '../static/boat.jpg'],
     avatar: 'nva.img',
     status: DANGER
   },
@@ -44,7 +44,7 @@ const boomers = [
     address: '123 ABC, Tran Phu',
     name: 'Nguyen Van A',
     amount: 1000000,
-    evident: 'asdsdsadad.img',
+    evidents: ['asdsdsadad.img', '../static/boat.jpg'],
     avatar: 'nva.img',
     status: DANGER
   }
