@@ -39,7 +39,7 @@ module.exports = {
 			status: BOOMER_DANGER
 		},
 		{
-			phone: '0981690658',
+			phone: '0918096856',
 			address: '710 Huynh Tan Phat',
 			name: 'Mai Dinh Chinh',
 			amount: '565000',
