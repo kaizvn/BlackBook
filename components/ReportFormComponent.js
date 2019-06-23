@@ -74,7 +74,6 @@ const ReportFormComponent = ({ onSubmit, reporter }) => {
             Report by {reporter.id}
           </Typography>
 
-          <pre>{JSON.stringify({ name, phone, address, images }, null, 4)}</pre>
           <form
             className={classes.form}
             onSubmit={e => {
