@@ -8,7 +8,7 @@ export const boomers = [
     address: '52 Huynh Van Banh',
     name: 'Nguyen Van Hai',
     amount: '1000000',
-    evidenceIds: ['1'],
+    evidenceIds: ['a', 'b', 'c', 'd'],
     avatar: 'static/avatar/1.jpg',
     status: BOOMER_WARNING
   },
@@ -57,29 +57,57 @@ export const users = [
 
 export const evidences = [
   {
-    id: '1',
-    photo: 'static/evidence/1.jpg',
+    id: 'a',
+    photo: 'static/evidence/boom1.jpg',
     by: '0903005212',
     at: 1561207713130,
-    description: 'Bạn này đặt mua 10 li trà sữa rồi không lấy luôn ...'
+    description: 'This person order 10 milkteas but never show up'
+  },
+  {
+    id: 'b',
+    photo: 'static/evidence/boom2.jpg',
+    by: '0903005212',
+    at: 1561207713130,
+    description: 'This person order 10 milkteas but never show up'
+  },
+  {
+    id: 'c',
+    photo: 'static/evidence/boom3.jpg',
+    by: '0903005212',
+    at: 1561207713130,
+    description: 'This person order 10 milkteas but never show up'
+  },
+  {
+    id: 'd',
+    photo: 'static/evidence/boom4.jpg',
+    by: '0903005212',
+    at: 1561207713130,
+    description: 'This person order 10 milkteas but never show up'
+  },
+  {
+    id: '1',
+    photo: 'static/evidence/boom1.jpg',
+    by: '0903005212',
+    at: 1561207713130,
+    description: 'This person order 10 milkteas but never show up'
   },
   {
     id: '2',
-    photo: 'static/evidence/2.jpg',
+    photo: 'static/evidence/boom2.jpg',
     by: '0903005212',
     at: 1561201513130,
     description: 'This person order 2 cakes but never show up'
   },
   {
     id: '3',
-    photo: 'static/evidence/3.jpg',
+    photo: 'static/evidence/boom3.jpg',
     by: '0903005212',
     at: 1561107713130,
     description: 'This person order 15 noodles but never show up'
   },
   {
     id: '4',
-    photo: 'static/evidence/4.jpg',
+    photo: 'static/evidence/boom4.jpg',
     by: '0921250030',
     at: 1561007713130,
     description: 'This person order a laptop but never show up'
