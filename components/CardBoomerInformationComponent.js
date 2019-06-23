@@ -10,10 +10,8 @@ import {
   makeStyles
 } from '@material-ui/core';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-
 import CancelIcon from '@material-ui/icons/Cancel';
 import React from 'react';
-
 import Router from 'next/router';
 
 import clsx from 'clsx';
@@ -22,6 +20,9 @@ import { BOOMER_DANGER, BOOMER_REGRETTED, BOOMER_WARNING } from '../mockData';
 import { themeColor } from '../utils';
 
 const useStyles = makeStyles(theme => ({
+  coverCard: {
+    cursor: 'pointer'
+  },
   cardDetails: {
     display: 'flex'
   },
@@ -82,41 +83,42 @@ export const CardBoomerInformationComponent = ({ boomer }) => {
   const classes = useStyles();
 
   return (
-    <Grid item lg={12}>
-      <Card className={classes.card}>
-        <CardHeader
-          onClick={getDetail(boomer.phone)}
-          avatar={
-            <Avatar
-              aria-label="Recipe"
-              className={clsx(
-                classes.avatar,
-                boomer.status === BOOMER_DANGER && classes.cardDanger,
-                boomer.status === BOOMER_WARNING && classes.cardWarning,
-                boomer.status === BOOMER_REGRETTED && classes.cardRegretted
-              )}
-            >
-              {getPartnerStatus(boomer.status)}
-            </Avatar>
-          }
-          title={boomer.name}
-          subheader={boomer.phone}
-        />
+    <Grid item lg={12} sm={12} className={classes.coverCard}>
+      <div onClick={getDetail(boomer.phone)}>
+        <Card className={classes.card}>
+          <CardHeader
+            avatar={
+              <Avatar
+                aria-label="Recipe"
+                className={clsx(
+                  classes.avatar,
+                  boomer.status === BOOMER_DANGER && classes.cardDanger,
+                  boomer.status === BOOMER_WARNING && classes.cardWarning,
+                  boomer.status === BOOMER_REGRETTED && classes.cardRegretted
+                )}
+              >
+                {getPartnerStatus(boomer.status)}
+              </Avatar>
+            }
+            title={boomer.name}
+            subheader={boomer.phone}
+          />
 
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {boomer.address}
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="Add to favorites">
-            <AddCircleOutlineIcon color="primary" />
-          </IconButton>
-          <IconButton aria-label="Share">
-            <CancelIcon color="error" />
-          </IconButton>
-        </CardActions>
-      </Card>
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {boomer.address}
+            </Typography>
+          </CardContent>
+          <CardActions disableSpacing>
+            <IconButton aria-label="Add to favorites">
+              <AddCircleOutlineIcon color="primary" />
+            </IconButton>
+            <IconButton aria-label="Share">
+              <CancelIcon color="error" />
+            </IconButton>
+          </CardActions>
+        </Card>
+      </div>
     </Grid>
   );
 };
