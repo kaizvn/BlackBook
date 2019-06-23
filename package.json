@@ -23,6 +23,7 @@
     "react-redux": "^7.1.0",
     "react-toastify": "^5.3.1",
     "redux": "^4.0.1",
+    "react-upload-gallery": "^0.0.1",
     "redux-api-call": "^1.0.9",
     "redux-array-middleware": "^1.0.1",
     "redux-thunk": "^2.3.0",
