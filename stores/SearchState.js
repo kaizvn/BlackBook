@@ -21,5 +21,16 @@ export default {
       return false;
     }
     return state;
+  },
+  isSearchFinished: (state = false, { type }) => {
+    if (type === SEARCH_ACTIONS.SEARCHING) {
+      return false;
+    }
+
+    if (type === SEARCH_ACTIONS.COMPLETED) {
+      return true;
+    }
+
+    return state;
   }
 };

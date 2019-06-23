@@ -11,7 +11,7 @@ const blue500 = blue[500];
 function MadeWithLove() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      Reporting, Regretting and Recovering.
+      Reporting does, not just by 'waving your flag'.
     </Typography>
   );
 }

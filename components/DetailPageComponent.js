@@ -16,7 +16,7 @@ const DetailPageComponent = ({ phone }) => {
         justify="center"
         container
         spacing={0}
-        style={{ margin: '24px 0' }}
+        style={{ margin: '24px 0', maxWidth: 1366 }}
       >
         <Grid item lg={3}>
           <Container>
