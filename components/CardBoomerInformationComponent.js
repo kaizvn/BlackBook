@@ -9,11 +9,13 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+
+import CancelIcon from '@material-ui/icons/Cancel';
 import React from 'react';
-import ShareIcon from '@material-ui/icons/Share';
+
 import Router from 'next/router';
+
 import clsx from 'clsx';
 
 import { BOOMER_DANGER, BOOMER_REGRETTED, BOOMER_WARNING } from '../mockData';
@@ -47,6 +49,15 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     fontSize: 10,
     fontWeight: 'bold'
+  },
+  icon: {
+    margin: theme.spacing(2)
+  },
+  iconHover: {
+    margin: theme.spacing(2),
+    '&:hover': {
+      color: 'red[800]'
+    }
   }
 }));
 
@@ -69,6 +80,7 @@ const getDetail = phone => () => {
 
 export const CardBoomerInformationComponent = ({ boomer }) => {
   const classes = useStyles();
+
   return (
     <Grid item lg={12}>
       <Card className={classes.card}>
@@ -98,13 +110,10 @@ export const CardBoomerInformationComponent = ({ boomer }) => {
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="Add to favorites">
-            <FavoriteIcon />
+            <AddCircleOutlineIcon color="primary" />
           </IconButton>
           <IconButton aria-label="Share">
-            <ShareIcon />
-          </IconButton>
-          <IconButton>
-            <ExpandMoreIcon />
+            <CancelIcon color="error" />
           </IconButton>
         </CardActions>
       </Card>

@@ -1,13 +1,16 @@
-import React from 'react';
 import {
   Avatar,
   Card,
   CardActionArea,
   CardActions,
   CardContent,
-  Button,
+  IconButton,
+  Tooltip,
   Typography
 } from '@material-ui/core';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import React from 'react';
+import Router from 'next/router';
 
 const BoomerDetailComponent = ({ user }) => {
   return user ? (
@@ -35,12 +38,22 @@ const BoomerDetailComponent = ({ user }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
+        <Tooltip title="Report">
+          <IconButton
+            onClick={() =>
+              Router.push(
+                `/report?name=${user.name}&phone=${user.phone}&address=${user.address}`
+              )
+            }
+          >
+            <AddCircleOutlineIcon color="error" />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Whiteless me !">
+          <IconButton onClick={() => Router.push('/saveme')}>
+            <AddCircleOutlineIcon color="primary" />
+          </IconButton>
+        </Tooltip>
       </CardActions>
     </Card>
   ) : (

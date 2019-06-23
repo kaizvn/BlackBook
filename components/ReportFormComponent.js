@@ -6,6 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import RUG, { DragArea, List } from 'react-upload-gallery';
 import React, { useState } from 'react';
+import Router from 'next/router';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
@@ -48,22 +49,24 @@ const connectToRedux = connect(
     reporter: state.reporter
   }),
   dispatch => ({
-    onSubmit: report => dispatch(submitReport(report))
+    onSubmit: report => {
+      dispatch(submitReport(report));
+      Router.push('/finished?isReported=true');
+    }
   })
 );
 
-const ReportFormComponent = ({ onSubmit, reporter }) => {
+const ReportFormComponent = ({ onSubmit, reporter, ...props }) => {
   const classes = useStyles();
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
+  const [name, setName] = useState(props.name);
+  const [phone, setPhone] = useState(props.phone);
+  const [address, setAddress] = useState(props.address);
   const [images, setImages] = useState([]);
   const [description, setDescription] = useState('');
-
   return !reporter.id ? (
     <ReporterComponent />
   ) : (
-    <Slide direction="up" in={reporter.id} mountOnEnter unmountOnExit>
+    <Slide direction="up" in={reporter.id && true} mountOnEnter unmountOnExit>
       <Container component="main" maxWidth="xs">
         <link rel="stylesheet" href="/static/react-upload-gallery.css" />
         <div className={classes.paper}>
@@ -90,6 +93,7 @@ const ReportFormComponent = ({ onSubmit, reporter }) => {
               name="name"
               label="Boomer Name"
               id="name"
+              value={name}
               onChange={e => {
                 setName(e.currentTarget.value);
               }}
@@ -103,6 +107,7 @@ const ReportFormComponent = ({ onSubmit, reporter }) => {
               label="Address"
               name="address"
               autoFocus
+              value={address}
               onChange={e => {
                 setAddress(e.currentTarget.value);
               }}
@@ -113,6 +118,7 @@ const ReportFormComponent = ({ onSubmit, reporter }) => {
               required
               fullWidth
               name="phone"
+              value={phone}
               label="Phone Number"
               id="phone"
               onChange={e => {
