@@ -42,13 +42,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const connectToRedux = connect(
-  null,
+  state => ({
+    reporter: state.reporter
+  }),
   dispatch => ({
     onSubmit: report => dispatch(submitReport(report))
   })
 );
 
-const ReportFormComponent = ({ onSubmit }) => {
+const ReportFormComponent = ({ onSubmit, reporter }) => {
   const classes = useStyles();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -56,7 +58,9 @@ const ReportFormComponent = ({ onSubmit }) => {
   const [images, setImages] = useState([]);
   const [description, setDescription] = useState('');
 
-  return (
+  return !reporter.id ? (
+    <div />
+  ) : (
     <Container component="main" maxWidth="xs">
       <link rel="stylesheet" href="/static/react-upload-gallery.css" />
       <div className={classes.paper}>
@@ -64,7 +68,7 @@ const ReportFormComponent = ({ onSubmit }) => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Report
+          Report by {reporter.id}
         </Typography>
 
         <pre>{JSON.stringify({ name, phone, address, images }, null, 4)}</pre>
