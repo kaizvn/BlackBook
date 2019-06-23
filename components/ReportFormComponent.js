@@ -74,7 +74,7 @@ const ReportFormComponent = ({ onSubmit, reporter, ...props }) => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Report by {reporter.id}
+            Reporter: {reporter.id}
           </Typography>
 
           <form

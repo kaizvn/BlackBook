@@ -28,42 +28,44 @@ const CommentComponent = ({ evidenceIds }) => {
   return (
     <Container>
       <List>
-        {filteredEvidences.map((item, key) => {
-          return (
-            <Fragment key={key}>
-              <ListItem alignItems="flex-start">
-                <ListItemAvatar>
-                  <Avatar alt="Remy Sharp" src={'/static/images/2.png'} />
-                </ListItemAvatar>
-                <ListItemText
-                  primary={item.phone || ''}
-                  secondary={
-                    <React.Fragment>
-                      <big>{item.by}</big>
-                      <br />
-                      <i>{item.date || ''}</i>
-                      <br />
-                      <Typography
-                        component="span"
-                        variant="body2"
-                        color="textPrimary"
-                      >
-                        {item.description || ''}
-                      </Typography>
-                    </React.Fragment>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                {item.photo && <img alt="" src={item.photo} />}
-                <Button size="small" color="primary">
-                  View More
-                </Button>
-              </ListItem>
-              <Divider />
-            </Fragment>
-          );
-        })}
+        {filteredEvidences
+          .map((item, key) => {
+            return (
+              <Fragment key={key}>
+                <ListItem alignItems="flex-start">
+                  <ListItemAvatar>
+                    <Avatar alt="Remy Sharp" src={'/static/images/2.png'} />
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={item.phone || ''}
+                    secondary={
+                      <React.Fragment>
+                        <big>{item.by}</big>
+                        <br />
+                        <i>{item.date || ''}</i>
+                        <br />
+                        <Typography
+                          component="span"
+                          variant="body2"
+                          color="textPrimary"
+                        >
+                          {item.description || ''}
+                        </Typography>
+                      </React.Fragment>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  {item.photo && <img alt="" src={item.photo} />}
+                  <Button size="small" color="primary">
+                    View More
+                  </Button>
+                </ListItem>
+                <Divider />
+              </Fragment>
+            );
+          })
+          .slice(0, 2)}
       </List>
     </Container>
   );
