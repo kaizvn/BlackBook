@@ -8,7 +8,7 @@ export const boomers = [
     address: '52 Huynh Van Banh',
     name: 'Nguyen Van Hai',
     amount: '1000000',
-    evidenceIds: ['a', 'b', 'c', 'd'],
+    evidenceIds: ['1'],
     avatar: 'static/avatar/1.jpg',
     status: BOOMER_WARNING
   },
@@ -57,39 +57,11 @@ export const users = [
 
 export const evidences = [
   {
-    id: 'a',
-    photo: 'static/evidence/boom1.jpg',
-    by: '0903005212',
-    at: 1561207713130,
-    description: 'This person order 10 milkteas but never show up'
-  },
-  {
-    id: 'b',
-    photo: 'static/evidence/boom2.jpg',
-    by: '0903005212',
-    at: 1561207713130,
-    description: 'This person order 10 milkteas but never show up'
-  },
-  {
-    id: 'c',
-    photo: 'static/evidence/boom3.jpg',
-    by: '0903005212',
-    at: 1561207713130,
-    description: 'This person order 10 milkteas but never show up'
-  },
-  {
-    id: 'd',
-    photo: 'static/evidence/boom4.jpg',
-    by: '0903005212',
-    at: 1561207713130,
-    description: 'This person order 10 milkteas but never show up'
-  },
-  {
     id: '1',
     photo: 'static/evidence/1.jpg',
     by: '0903005212',
     at: 1561207713130,
-    description: 'This person order 10 milkteas but never show up'
+    description: 'Bạn này đặt mua 10 li trà sữa rồi không lấy luôn ...'
   },
   {
     id: '2',
