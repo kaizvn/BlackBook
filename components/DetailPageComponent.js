@@ -8,7 +8,6 @@ import CommentComponent from './CommentComponent';
 import { boomers } from '../mockData';
 
 const DetailPageComponent = ({ phone }) => {
-  console.log(phone);
   const boomer = boomers.find(boomer => boomer.phone === phone);
   return (
     <main>
