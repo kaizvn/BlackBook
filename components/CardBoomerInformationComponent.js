@@ -13,7 +13,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import React from 'react';
 import ShareIcon from '@material-ui/icons/Share';
-
+import Router from 'next/router';
 import clsx from 'clsx';
 
 import { BOOMER_DANGER, BOOMER_REGRETTED, BOOMER_WARNING } from '../mockData';
@@ -63,12 +63,17 @@ const getPartnerStatus = status => {
   }
 };
 
+const getDetail = phone => () => {
+  Router.push(`/detail?phone=${phone}`);
+};
+
 export const CardBoomerInformationComponent = ({ boomer }) => {
   const classes = useStyles();
   return (
     <Grid item lg={12}>
       <Card className={classes.card}>
         <CardHeader
+          onClick={getDetail(boomer.phone)}
           avatar={
             <Avatar
               aria-label="Recipe"
