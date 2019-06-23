@@ -1,4 +1,4 @@
-import { Button, Container, Grid } from '@material-ui/core';
+import { Button, Container, Grid, Slide } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { flow, map, uniqBy } from 'lodash/fp';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,6 +8,8 @@ import RUG, { DragArea, List } from 'react-upload-gallery';
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+
+import ReporterComponent from './ReporterComponent';
 
 function submitReport(payload) {
   console.log('data', payload);
@@ -59,116 +61,118 @@ const ReportFormComponent = ({ onSubmit, reporter }) => {
   const [description, setDescription] = useState('');
 
   return !reporter.id ? (
-    <div />
+    <ReporterComponent />
   ) : (
-    <Container component="main" maxWidth="xs">
-      <link rel="stylesheet" href="/static/react-upload-gallery.css" />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Report by {reporter.id}
-        </Typography>
+    <Slide direction="up" in={reporter.id} mountOnEnter unmountOnExit>
+      <Container component="main" maxWidth="xs">
+        <link rel="stylesheet" href="/static/react-upload-gallery.css" />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Report by {reporter.id}
+          </Typography>
 
-        <pre>{JSON.stringify({ name, phone, address, images }, null, 4)}</pre>
-        <form
-          className={classes.form}
-          onSubmit={e => {
-            e.preventDefault();
-            onSubmit({ address, phone, images, name, description });
-          }}
-          noValidate
-        >
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="name"
-            label="Boomer Name"
-            id="name"
-            onChange={e => {
-              setName(e.currentTarget.value);
-            }}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="address"
-            label="Address"
-            name="address"
-            autoFocus
-            onChange={e => {
-              setAddress(e.currentTarget.value);
-            }}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="phone"
-            label="Phone Number"
-            id="phone"
-            onChange={e => {
-              setPhone(e.currentTarget.value);
-            }}
-          />
-
-          <TextField
-            multiline
-            rows={5}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="description"
-            label="Description"
-            id="description"
-            onChange={e => {
-              setDescription(e.currentTarget.value);
-            }}
-          />
-
-          <RUG
-            accept={['jpg', 'jpeg', 'png', 'gif']}
-            type="card"
-            onChange={images => {
-              const imgUrls = flow(
-                uniqBy('name'),
-                map('source')
-              )(images);
-              setImages(imgUrls); // save current component
-            }}
-          >
-            <DragArea>
-              {image => (
-                <div className={classes.card}>
-                  <Grid item xs={12} md={12}>
-                    <List image={image} />
-                  </Grid>
-                </div>
-              )}
-            </DragArea>
-          </RUG>
-          <Button
-            type="submit"
-            onClick={() => {
+          <pre>{JSON.stringify({ name, phone, address, images }, null, 4)}</pre>
+          <form
+            className={classes.form}
+            onSubmit={e => {
+              e.preventDefault();
               onSubmit({ address, phone, images, name, description });
             }}
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
+            noValidate
           >
-            Report
-          </Button>
-        </form>
-      </div>
-    </Container>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="name"
+              label="Boomer Name"
+              id="name"
+              onChange={e => {
+                setName(e.currentTarget.value);
+              }}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="address"
+              label="Address"
+              name="address"
+              autoFocus
+              onChange={e => {
+                setAddress(e.currentTarget.value);
+              }}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="phone"
+              label="Phone Number"
+              id="phone"
+              onChange={e => {
+                setPhone(e.currentTarget.value);
+              }}
+            />
+
+            <TextField
+              multiline
+              rows={5}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="description"
+              label="Description"
+              id="description"
+              onChange={e => {
+                setDescription(e.currentTarget.value);
+              }}
+            />
+
+            <RUG
+              accept={['jpg', 'jpeg', 'png', 'gif']}
+              type="card"
+              onChange={images => {
+                const imgUrls = flow(
+                  uniqBy('name'),
+                  map('source')
+                )(images);
+                setImages(imgUrls); // save current component
+              }}
+            >
+              <DragArea>
+                {image => (
+                  <div className={classes.card}>
+                    <Grid item xs={12} md={12}>
+                      <List image={image} />
+                    </Grid>
+                  </div>
+                )}
+              </DragArea>
+            </RUG>
+            <Button
+              type="submit"
+              onClick={() => {
+                onSubmit({ address, phone, images, name, description });
+              }}
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Report
+            </Button>
+          </form>
+        </div>
+      </Container>
+    </Slide>
   );
 };
 

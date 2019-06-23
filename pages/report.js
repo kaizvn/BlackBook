@@ -6,7 +6,6 @@ import ReporterComponent from '../components/ReporterComponent';
 
 const ReportPage = () => (
   <MainPageLayout>
-    <ReporterComponent />
     <ReportFormComponent />
   </MainPageLayout>
 );
