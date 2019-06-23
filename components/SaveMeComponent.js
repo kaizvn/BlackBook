@@ -1,4 +1,3 @@
-import { flow, map, uniqBy } from 'lodash/fp';
 import {
   makeStyles,
   Button,
@@ -59,11 +58,11 @@ const SaveMeComponent = ({}) => {
   const classes = useStyles();
   const [selectedValue, setSelectedValue] = useState('a');
   const [displayUpload, setDisplayUpload] = useState(false);
-  const [images, setImages] = useState([]);
+
   function handleChange(event) {
     const { value } = event.target;
     setSelectedValue(value);
-    if (value == '3') {
+    if (+value === 3) {
       setDisplayUpload(false);
       return;
     }
@@ -129,6 +128,40 @@ const SaveMeComponent = ({}) => {
                   </div>
                 </FormGroup>
               </Paper>
+
+              <Grid items>
+                {displayUpload && (
+                  <Container component="main" maxWidth="xs">
+                    <link
+                      rel="stylesheet"
+                      href="/static/react-upload-gallery.css"
+                    />
+                    <div className={classes.paper}>
+                      <form
+                        className={classes.form}
+                        onSubmit={e => {
+                          e.preventDefault();
+                          // onSubmit({ address, phone, images, name, description });
+                        }}
+                        noValidate
+                      >
+                        <RUG accept={['jpg', 'jpeg', 'png', 'gif']} type="card">
+                          <DragArea>
+                            {image => (
+                              <div className={classes.card}>
+                                <Grid item xs={12} md={12}>
+                                  <List image={image} />
+                                </Grid>
+                              </div>
+                            )}
+                          </DragArea>
+                        </RUG>
+                      </form>
+                    </div>
+                  </Container>
+                )}
+              </Grid>
+
               <Button
                 style={{ margin: '5px 0' }}
                 variant="contained"
@@ -141,48 +174,6 @@ const SaveMeComponent = ({}) => {
                 <ThreeSixtyIcon /> Submit
               </Button>
             </form>
-          </Grid>
-          <Grid container>
-            {displayUpload && (
-              <Container component="main" maxWidth="xs">
-                <link
-                  rel="stylesheet"
-                  href="/static/react-upload-gallery.css"
-                />
-                <div className={classes.paper}>
-                  <form
-                    className={classes.form}
-                    onSubmit={e => {
-                      e.preventDefault();
-                      // onSubmit({ address, phone, images, name, description });
-                    }}
-                    noValidate
-                  >
-                    <RUG
-                      accept={['jpg', 'jpeg', 'png', 'gif']}
-                      type="card"
-                      onChange={images => {
-                        const imgUrls = flow(
-                          uniqBy('name'),
-                          map('source')
-                        )(images);
-                        setImages(imgUrls); // save current component
-                      }}
-                    >
-                      <DragArea>
-                        {image => (
-                          <div className={classes.card}>
-                            <Grid item xs={12} md={12}>
-                              <List image={image} />
-                            </Grid>
-                          </div>
-                        )}
-                      </DragArea>
-                    </RUG>
-                  </form>
-                </div>
-              </Container>
-            )}
           </Grid>
         </Container>
       </Grid>
