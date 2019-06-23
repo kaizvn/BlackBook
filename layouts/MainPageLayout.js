@@ -1,53 +1,50 @@
+import { blue } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
-import Link from '@material-ui/core/Link';
+import BookIcon from '@material-ui/icons/Book';
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { blue } from '@material-ui/core/colors';
 
 const blue500 = blue[500];
 
 function MadeWithLove() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Built with love by the '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Material-UI
-      </Link>
-      {' team.'}
+      Reporting does, not just by 'waving your flag'.
     </Typography>
   );
 }
 
 const useStyles = makeStyles(theme => ({
+  root: { display: 'flex', flexDirection: 'column', minHeight: '100vh' },
   icon: {
     marginRight: theme.spacing(2)
   },
   footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6)
+    padding: theme.spacing(2),
+    marginTop: 'auto'
   }
 }));
 
-export const MainPageLayout = ({ children }) => {
+const MainPageLayout = ({ children }) => {
   const classes = useStyles();
   return (
-    <React.Fragment>
+    <div className={classes.root}>
       <AppBar position="relative" style={{ backgroundColor: blue500 }}>
         <Toolbar>
-          <CameraIcon className={classes.icon} />
+          <BookIcon className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+            BlackBook
           </Typography>
         </Toolbar>
       </AppBar>
-      <main>{children}</main>
+      {/* body */}
+      {children}
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          &copy; Wao Studio 2019
         </Typography>
         <Typography
           variant="subtitle1"
@@ -55,12 +52,12 @@ export const MainPageLayout = ({ children }) => {
           color="textSecondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          We can change the whole nation by a single small action.
         </Typography>
         <MadeWithLove />
       </footer>
       {/* End footer */}
-    </React.Fragment>
+    </div>
   );
 };
 

@@ -1,7 +1,12 @@
 import { compact } from 'lodash/fp';
 import { createStore, compose, applyMiddleware } from 'redux';
+import reduxArrayMiddleware from 'redux-array-middleware';
+import reduxThunk from 'redux-thunk';
 
+import { middleware as apiReactionMiddleware } from './middlewares/api-reaction';
 import { isServer } from '../libs';
+import apiMiddlewares from './middlewares';
+import apiPrefix from './middlewares/api-prefix';
 import rootReducer from './rootReducer';
 
 const env = process.env.NODE_ENV || 'development';
@@ -12,8 +17,17 @@ const logger = () => next => action => {
 };
 
 const makeStore = initialState => {
+  const base = process.env.API_SERVER_URL || 'http://localhost:3003';
+
   const enhancers = compact([
-    applyMiddleware(logger),
+    applyMiddleware(
+      logger,
+      reduxThunk,
+      reduxArrayMiddleware,
+      apiMiddlewares,
+      apiPrefix(base),
+      apiReactionMiddleware
+    ),
     typeof window !== 'undefined' &&
       window.__REDUX_DEVTOOLS_EXTENSION__ &&
       window.__REDUX_DEVTOOLS_EXTENSION__()

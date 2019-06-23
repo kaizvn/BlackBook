@@ -1,9 +1,8 @@
 const db = require('../server/db');
-const boomers = require('../server/db/mockData');
+const { boomers, evidences, users } = require('../server/db/mockData');
 
 module.exports.up = function(next) {
-	db.defaults({ boomers: [], users: [] }).write();
-	db.set('boomers', boomers).write();
+	db.defaults({ boomers: boomers, evidences: evidences, users: users }).write();
 	next();
 };
 
