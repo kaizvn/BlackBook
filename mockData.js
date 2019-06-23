@@ -9,7 +9,7 @@ export const boomers = [
 		name: 'Nguyen Van Hai',
 		amount: '1000000',
 		evidenceIds: ['1'],
-		avatar: '/avatar/1.jpg',
+		avatar: 'static/avatar/1.jpg',
 		status: BOOMER_WARNING
 	},
 	{
@@ -18,7 +18,7 @@ export const boomers = [
 		name: 'Tran Minh Tuan',
 		amount: '210000',
 		evidenceIds: ['2'],
-		avatar: '/avatar/2.jpg',
+		avatar: 'static/avatar/2.jpg',
 		status: BOOMER_DANGER
 	},
 	{
@@ -27,7 +27,7 @@ export const boomers = [
 		name: 'Nguyen Thi Nu',
 		amount: '1150000',
 		evidenceIds: ['3'],
-		avatar: '/avatar/3.jpg',
+		avatar: 'static/avatar/3.jpg',
 		status: BOOMER_REGRETTED
 	},
 	{
@@ -36,7 +36,7 @@ export const boomers = [
 		name: 'Mai Hoang Anh',
 		amount: '325000',
 		evidenceIds: ['4'],
-		avatar: '/avatar/4.jpg',
+		avatar: 'static/avatar/4.jpg',
 		status: BOOMER_DANGER
 	},
 	{
@@ -45,14 +45,14 @@ export const boomers = [
 		name: 'Mai Dinh Chinh',
 		amount: '565000',
 		evidenceIds: ['5'],
-		avatar: '/avatar/5.jpg',
+		avatar: 'static/avatar/5.jpg',
 		status: BOOMER_WARNING
 	}
 ];
 
 export const users = [
-	{ phone: '0903005212', avatar: '/avatar/6.jpg' },
-	{ phone: '0921250030', avatar: '/avatar/7.jpg' }
+	{ phone: '0903005212', avatar: 'static/avatar/6.jpg' },
+	{ phone: '0921250030', avatar: 'static/avatar/7.jpg' }
 ];
 
 export const evidences = [
