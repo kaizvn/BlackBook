@@ -12,49 +12,23 @@ import {
   Divider
 } from '@material-ui/core';
 
-const listEvidents = [
-  {
-    id: 1,
-    photo: '/static/images/1.jpg',
-    date: '14/2/2019',
-    by: 123456789,
-    description: 'This person order 10 milkteas but never show up!'
-  },
-  {
-    id: 2,
-    photo: '/static/images/1.jpg',
-    date: '15/2/2019',
-    by: 123456789,
-    description: 'This person order 2 cakes but never show up'
-  },
-  {
-    id: 3,
-    // photo: "/static/images/1.jpg",
-    date: '16/2/2019',
-    by: 123456789,
-    description: 'This person order 15 noodles but never show up'
-  },
-  {
-    id: 4,
-    // photo: "/static/images/1.jpg",
-    date: '17/2/2019',
-    by: 123456789,
-    description: 'This person order a laptop but never show up'
-  },
-  {
-    id: 5,
-    // photo: "/static/images/1.jpg",
-    date: '18/2/2019',
-    by: 123456789,
-    description: 'This person order a car but never show up'
-  }
-];
+import { evidences } from '../mockData';
 
-const CommentComponent = () => {
+const CommentComponent = ({ evidenceIds }) => {
+  let filteredEvidences = [];
+  for (let evidenceId of evidenceIds) {
+    const evidence = evidences.find(evidence => evidence.id === evidenceId);
+
+    if (evidence) {
+      const { by, date, phone, description } = evidence;
+      filteredEvidences.push({ by, date, phone, description });
+    }
+  }
+
   return (
     <Container>
       <List>
-        {listEvidents.map((item, key) => {
+        {filteredEvidences.map((item, key) => {
           return (
             <Fragment key={key}>
               <ListItem alignItems="flex-start">

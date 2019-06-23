@@ -25,12 +25,12 @@ const DetailPageComponent = ({ phone }) => {
         </Grid>
         <Grid item lg={8}>
           <Container>
-            <EvidentsComponent />
+            <EvidentsComponent evidenceIds={boomer.evidenceIds} />
           </Container>
         </Grid>
         <Grid item lg={3}></Grid>
         <Grid item lg={8}>
-          <CommentComponent />
+          <CommentComponent evidenceIds={boomer.evidenceIds} />
         </Grid>
       </Grid>
     </main>
