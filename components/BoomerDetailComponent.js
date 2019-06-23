@@ -49,7 +49,7 @@ const BoomerDetailComponent = ({ user }) => {
             <AddCircleOutlineIcon color="error" />
           </IconButton>
         </Tooltip>
-        <Tooltip title="Whiteless me !">
+        <Tooltip title="I'm regret :( !">
           <IconButton onClick={() => Router.push('/saveme')}>
             <AddCircleOutlineIcon color="primary" />
           </IconButton>

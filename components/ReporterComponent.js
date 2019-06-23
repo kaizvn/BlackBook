@@ -54,9 +54,9 @@ const ReporterComponent = ({ onSubmit, reporter }) => {
       <Grid item lg={6} sm={6}>
         <Container>
           <Grid justify="center" container>
-            <h1>BlackBook</h1>
+            <h1>Please enter your phone number</h1>
           </Grid>
-          <Grid container>
+          <Grid container justify="center" alignItems="center">
             <form
               onSubmit={e => {
                 e.preventDefault();
@@ -66,15 +66,17 @@ const ReporterComponent = ({ onSubmit, reporter }) => {
             >
               <Paper className={classes.paper}>
                 <InputBase
+                  lg={8}
                   value={inputValue}
                   onChange={e => setInput(e.currentTarget.value)}
                   style={{
                     marginLeft: 8,
                     flex: 1
                   }}
-                  placeholder="Please let us know who are you !"
+                  placeholder="We will contact you if this person regret what he did to you"
                   inputProps={{
-                    'aria-label': 'Please let us know who are you !'
+                    'aria-label':
+                      'We will contact you if this person regret what he did to you'
                   }}
                 />
                 <Divider

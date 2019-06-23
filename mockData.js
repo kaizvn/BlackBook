@@ -4,13 +4,13 @@ export const BOOMER_REGRETTED = 2;
 
 export const boomers = [
   {
-    phone: '0981690658',
+    phone: '0987654321',
     address: '52 Huynh Van Banh',
     name: 'Nguyen Van Hai',
     amount: '1000000',
     evidenceIds: ['a', 'b', 'c', 'd'],
     avatar: 'static/avatar/1.jpg',
-    status: BOOMER_WARNING
+    status: BOOMER_DANGER
   },
   {
     phone: '0958186096',
@@ -61,14 +61,15 @@ export const evidences = [
     photo: 'static/evidence/boom1.jpg',
     by: '0903005212',
     at: 1561207713130,
-    description: 'This person order 10 milkteas but never show up'
+    description:
+      'This person order 20 drinks but never show up. I lost the belief in humanity'
   },
   {
     id: 'b',
     photo: 'static/evidence/boom2.jpg',
     by: '0903005212',
     at: 1561207713130,
-    description: 'Bạn này đặt mua 2 cái bánh nhưng không liên lạc được'
+    description: 'Bạn này đặt mua 2 cái bánh xe bò nhưng không liên lạc được'
   },
   {
     id: 'c',

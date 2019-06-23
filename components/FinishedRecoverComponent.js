@@ -38,8 +38,8 @@ const FinishedRecoverComponent = ({ isFE, isReported }) => {
         container
         spacing={0}
       >
-        <Box mb={2}>
-          <Grid item lg={6} sm={12}>
+        <Grid item lg={8} sm={12}>
+          <Box mb={2} align="center">
             {isReported && (
               <Typography
                 align="center"
@@ -66,20 +66,24 @@ const FinishedRecoverComponent = ({ isFE, isReported }) => {
                 color="secondary"
                 component="header"
               >
-                Thank you! Now you're cured!
+                Thank you!
+                <br />
+                Faith of humanity restored!
               </Typography>
             )}
-          </Grid>
-        </Box>
-        <Button
-          onClick={() => {
-            Router.push('/');
-          }}
-          color="primary"
-          variant="contained"
-        >
-          Back To Dashboard
-        </Button>
+          </Box>
+        </Grid>
+        <Grid align="center" item lg={12}>
+          <Button
+            onClick={() => {
+              Router.push('/');
+            }}
+            color="primary"
+            variant="contained"
+          >
+            Back To Dashboard
+          </Button>
+        </Grid>
       </Grid>
     </React.Fragment>
   );
