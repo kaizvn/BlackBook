@@ -16,7 +16,7 @@ import ShareIcon from '@material-ui/icons/Share';
 
 import clsx from 'clsx';
 
-import { DANGER, REGRETTED, WARNING } from '../stores/BoomerState';
+import { BOOMER_DANGER, BOOMER_REGRETTED, BOOMER_WARNING } from '../mockData';
 import { themeColor } from '../utils';
 
 const useStyles = makeStyles(theme => ({
@@ -52,11 +52,11 @@ const useStyles = makeStyles(theme => ({
 
 const getPartnerStatus = status => {
   switch (status) {
-    case DANGER:
+    case BOOMER_DANGER:
       return 'Danger';
-    case WARNING:
+    case BOOMER_WARNING:
       return 'Warning';
-    case REGRETTED:
+    case BOOMER_REGRETTED:
       return 'Fixed';
     default:
       return '';
@@ -74,9 +74,9 @@ export const CardBoomerInformationComponent = ({ boomer }) => {
               aria-label="Recipe"
               className={clsx(
                 classes.avatar,
-                boomer.status === DANGER && classes.cardDanger,
-                boomer.status === WARNING && classes.cardWarning,
-                boomer.status === REGRETTED && classes.cardRegretted
+                boomer.status === BOOMER_DANGER && classes.cardDanger,
+                boomer.status === BOOMER_WARNING && classes.cardWarning,
+                boomer.status === BOOMER_REGRETTED && classes.cardRegretted
               )}
             >
               {getPartnerStatus(boomer.status)}
