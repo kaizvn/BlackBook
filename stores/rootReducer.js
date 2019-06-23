@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import BoomerState from './BoomerState';
+import ReporterState from './ReporterState';
 import SearchState from './SearchState';
 
 export default combineReducers({
@@ -16,5 +17,6 @@ export default combineReducers({
     return state;
   },
   ...BoomerState,
-  ...SearchState
+  ...SearchState,
+  ...ReporterState
 });

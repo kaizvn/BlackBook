@@ -3,10 +3,14 @@ import React from 'react';
 import MainPageLayout from '../layouts/MainPageLayout';
 import ReportFormComponent from '../components/ReportFormComponent';
 
-const ReportPage = () => (
+const ReportPage = props => (
   <MainPageLayout>
-    <ReportFormComponent />
+    <ReportFormComponent {...props} />
   </MainPageLayout>
 );
+
+ReportPage.getInitialProps = ({ query = {} }) => {
+  return query;
+};
 
 export default ReportPage;
