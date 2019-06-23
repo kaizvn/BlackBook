@@ -5,13 +5,10 @@ import EvidentsComponent from './EvidentsComponent';
 import BoomerDetailComponent from './BoomerDetailComponent';
 import CommentComponent from './CommentComponent';
 
-const user = {
-  name: 'Black book name',
-  address: '123 Smart city',
-  phone: '123456789'
-};
+import { boomers } from '../mockData';
 
-const DetailPageComponent = () => {
+const DetailPageComponent = ({ phone }) => {
+  const boomer = boomers.find(boomer => boomer.phone === phone);
   return (
     <main>
       <Grid
@@ -23,7 +20,7 @@ const DetailPageComponent = () => {
       >
         <Grid item lg={3}>
           <Container>
-            <BoomerDetailComponent user={user} />
+            <BoomerDetailComponent user={boomer} />
           </Container>
         </Grid>
         <Grid item lg={8}>

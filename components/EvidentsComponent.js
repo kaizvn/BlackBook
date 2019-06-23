@@ -3,17 +3,17 @@ import React from 'react';
 
 const IMAGES = [
   {
-    src: 'https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg',
+    src: '/static/evidence/1.jpg',
     thumbnail:
-      'https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg',
+      '/static/evidence/1.jpg',
     thumbnailWidth: 320,
     thumbnailHeight: 174,
     caption: 'After Rain (Jeshu John - designerspics.com)'
   },
   {
-    src: 'https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg',
+    src: '/static/evidence/2.jpg',
     thumbnail:
-      'https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg',
+      '/static/evidence/2.jpg',
     thumbnailWidth: 320,
     thumbnailHeight: 212,
     // tags: [{ value: "Ocean", title: "Ocean" }, { value: "People", title: "People" }],
@@ -21,25 +21,25 @@ const IMAGES = [
   },
 
   {
-    src: 'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg',
+    src: '/static/evidence/3.jpg',
     thumbnail:
-      'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg',
+      '/static/evidence/3.jpg',
     thumbnailWidth: 320,
     thumbnailHeight: 212
   },
 
   {
-    src: 'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg',
+    src: '/static/evidence/4.jpg',
     thumbnail:
-      'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg',
+      '/static/evidence/4.jpg',
     thumbnailWidth: 320,
     thumbnailHeight: 212
   },
 
   {
-    src: 'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg',
+    src: '/static/evidence/5.jpg',
     thumbnail:
-      'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg',
+      '/static/evidence/5.jpg',
     thumbnailWidth: 320,
     thumbnailHeight: 212
   },
