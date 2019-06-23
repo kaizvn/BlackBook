@@ -6,6 +6,8 @@ import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
+import MLink from '../src/MLink';
+
 const blue500 = blue[500];
 
 function MadeWithLove() {
@@ -24,6 +26,9 @@ const useStyles = makeStyles(theme => ({
   footer: {
     padding: theme.spacing(2),
     marginTop: 'auto'
+  },
+  homeLink: {
+    color: '#fff'
   }
 }));
 
@@ -35,7 +40,9 @@ const MainPageLayout = ({ children }) => {
         <Toolbar>
           <BookIcon className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
-            BlackBook
+            <MLink className={classes.homeLink} href="/">
+              BlackBook
+            </MLink>
           </Typography>
         </Toolbar>
       </AppBar>
