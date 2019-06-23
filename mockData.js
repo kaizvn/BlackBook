@@ -68,7 +68,7 @@ export const evidences = [
     photo: 'static/evidence/boom2.jpg',
     by: '0903005212',
     at: 1561207713130,
-    description: 'This person order 10 milkteas but never show up'
+    description: 'Bạn này đặt mua 2 cái bánh nhưng không liên lạc được'
   },
   {
     id: 'c',
