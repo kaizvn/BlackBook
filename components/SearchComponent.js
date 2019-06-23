@@ -1,5 +1,5 @@
+import { Typography, makeStyles } from '@material-ui/core';
 import { connect } from 'react-redux';
-import { makeStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 
 import { doSearching } from '../stores/SearchState';
+import MLink from '../src/MLink';
 
 const useStyles = makeStyles(() => ({
   searchHome: {
@@ -92,6 +93,11 @@ const SearchComponent = ({ onSubmit }) => {
                 </Button>
               </Paper>
             </form>
+          </Grid>
+          <Grid justify="center" container>
+            <Typography align="center" color="secondary" component="p">
+              Someone bothering you? <MLink href="/report">Report them!</MLink>
+            </Typography>
           </Grid>
         </Container>
       </Grid>

@@ -4979,7 +4979,7 @@ prop-types@15.6.2:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5195,6 +5195,15 @@ react-scrolllock@^2.0.1:
     exenv "^1.2.2"
     react-prop-toggle "^1.0.2"
 
+react-sortable-hoc@^1.8.3:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/react-sortable-hoc/-/react-sortable-hoc-1.9.1.tgz#ae3d28c3cff87fb862be3ddcde9c76b5b5bd2152"
+  integrity sha512-2VeofjRav8+eZeE5Nm/+b8mrA94rQ+gBsqhXi8pRBSjOWNqslU3ZEm+0XhSlfoXJY2lkgHipfYAUuJbDtCixRg==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    invariant "^2.2.4"
+    prop-types "^15.5.7"
+
 react-ssr-prepass@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-ssr-prepass/-/react-ssr-prepass-1.0.2.tgz#f411414cbc043a90254cddcef0793b2aaf14b086"
@@ -5231,6 +5240,14 @@ react-transition-group@^4.0.0:
     dom-helpers "^3.4.0"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-upload-gallery@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/react-upload-gallery/-/react-upload-gallery-0.0.1.tgz#7eff083ce577f2ceed2ca6b12154e71375179d6c"
+  integrity sha512-fAlT8i4EVopPCtL/U4MtM4Boj3zGdJ4z63rni/MLZUyBm3X5r/pHjBXPgHhdtktEeLzvz7CCNq8loROVlH4N3Q==
+  dependencies:
+    prop-types "^15.7.2"
+    react-sortable-hoc "^1.8.3"
 
 react@^16.8.6:
   version "16.8.6"
@@ -5325,11 +5342,6 @@ redux-array-middleware@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/redux-array-middleware/-/redux-array-middleware-1.0.1.tgz#7757552ddbf19c313b2a3797de8cc84883e457cb"
   integrity sha1-d1dVLdvxnDE7KjeX3ozISIPkV8s=
-
-redux-call-api@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/redux-call-api/-/redux-call-api-0.0.1.tgz#03175be6cdb076e5073b35be7e84ae8ed7dbd3a8"
-  integrity sha1-Axdb5s2wduUHOzW+foSujtfb06g=
 
 redux-thunk@^2.3.0:
   version "2.3.0"
