@@ -5,7 +5,6 @@ import { formatPhone } from '../utils';
 export default {
   boomers: (state = [], { type, payload }) => {
     if (type === SEARCH_ACTIONS.SEARCHING) {
-      // return payload === 'hello' ? boomers : [];
       return boomers.filter(
         ({ phone, name, address }) =>
           phone === formatPhone(payload) ||
